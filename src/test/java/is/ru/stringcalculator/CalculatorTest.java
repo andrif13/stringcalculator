@@ -46,6 +46,15 @@ public class CalculatorTest {
     public void testignore1000(){
     	assertEquals(2, Calculator.add("2,1001"));
     }
+
+    @Test
+    public void negativeNumberThrowsAnException(){
+    	try{
+    		Calculator.add("-1,2");
+    	} catch(RuntimeException ex) {
+    		assertEquals("Negatives not allowed: -1", ex.getMessage());
+    	}
+    }
    
     
     
