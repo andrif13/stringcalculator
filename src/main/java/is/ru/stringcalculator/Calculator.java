@@ -1,7 +1,11 @@
 package is.ru.stringcalculator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 public class Calculator {
+
+private static String negativecheck = "Negatives not allowed: ";
 
 	public static int add(String text){
 		if(text.equals("")){
@@ -11,6 +15,9 @@ public class Calculator {
 			return sum(splitNumbers(text));
 		}
 		else if(text.contains("/")){
+			return sum(splitNumbers(text));
+		}
+		else if(text.contains("-")){
 			return sum(splitNumbers(text));
 		}
 		else
@@ -28,10 +35,12 @@ public class Calculator {
 		}
 		else
 		{
+			
 			String[] replaced = numbers.split(",|\n");
 	    	return replaced;
 		}
 	}
+
 
 	private static String[] splitCustomDelimiter(String text){
 
@@ -46,6 +55,10 @@ public class Calculator {
     private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
+        	if(toInt(number) > 1000)
+        	{
+        		continue;
+        	}
 		    total += toInt(number);
 		}
 		return total;

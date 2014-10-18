@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 public class CalculatorTest {
 
+
 	public static void main(String args[]) {
       org.junit.runner.JUnitCore.main("is.ru.stringcalculator.CalculatorTest");
     }
@@ -41,5 +42,14 @@ public class CalculatorTest {
     public void testAcceptedCustomDelimeters(){
     	assertEquals(3, Calculator.add("//;\n1;2"));
     }
+    @Test
+    public void testignore1000(){
+    	assertEquals(2, Calculator.add("2,1001"));
+    }
+   
+    
+    
+ 
+   
 
 }
