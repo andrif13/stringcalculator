@@ -31,6 +31,10 @@ private static String negativecheck = "Negatives not allowed: ";
 	private static String[] splitNumbers(String numbers){
 		if(numbers.startsWith("//"))
 		{
+			if(numbers.contains(";;"))
+			{
+				return splitByrandomLength(numbers);
+			}
 			return splitCustomDelimiter(numbers);
 		}
 		else if(numbers.contains("-"))
@@ -56,7 +60,13 @@ private static String negativecheck = "Negatives not allowed: ";
 		}
 	}
 
-
+	private static String[] splitByrandomLength(String numbers) {
+		Matcher m = Pattern.compile("//(?<delimiter>.*)\n(?<value>.*)").matcher(numbers);
+	    m.matches();
+	    String delimiter = m.group(1);
+	    String num = m.group(2);
+	    return num.split(delimiter);
+	}
 
 	private static String[] splitCustomDelimiter(String text){
 

@@ -65,5 +65,9 @@ public class CalculatorTest {
     		assertEquals("Negatives not allowed: ,-4,-5", ex.getMessage());
     	}
     }
+    @Test
+    public void Delimeterofeverysize(){
+    	assertEquals(6, Calculator.add("//;;;\n1;;;2;;;3"));
+    }
    
 }
