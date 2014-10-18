@@ -37,14 +37,16 @@ private static String negativecheck = "Negatives not allowed: ";
 		{
 			String[] tokens = numbers.split(",|\n");
 			int total1 = 0;
+			String nr = "";
+
 			for(String negative : tokens) 
 			{
 				if(toInt(negative) < 0)
 				{
-					total1 += toInt(negative);
+					nr += "," + negative ;
 				}
 			}
-			throw new RuntimeException("Negatives not allowed: " + total1);
+			throw new RuntimeException("Negatives not allowed: " + nr);
 		}
 		else
 		{

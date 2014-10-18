@@ -52,13 +52,18 @@ public class CalculatorTest {
     	try{
     		Calculator.add("-1,2");
     	} catch(RuntimeException ex) {
-    		assertEquals("Negatives not allowed: -1", ex.getMessage());
+    		assertEquals("Negatives not allowed: ,-1", ex.getMessage());
+    	}
+    }
+    
+
+     @Test
+    public void negativeNumberMoreThanOneThrowsAnException(){
+    	try{
+    		Calculator.add("2,-4,3,-5");
+    	} catch(RuntimeException ex) {
+    		assertEquals("Negatives not allowed: ,-4,-5", ex.getMessage());
     	}
     }
    
-    
-    
- 
-   
-
 }
